@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="'Segoe UI', sans-serif">
+  <rect width="960" height="540" fill="#1e1e1e"/>
+  <rect x="80" y="80" width="800" height="400" rx="8" fill="#1e1e1e" stroke="#3c3c3c"/>
+  <rect x="80" y="80" width="800" height="40" fill="#323233"/>
+  <rect x="100" y="92" width="20" height="16" rx="3" fill="#444"/>
+  <rect x="128" y="92" width="20" height="16" rx="3" fill="#444"/>
+  <rect x="156" y="90" width="640" height="20" rx="10" fill="#1e1e1e"/>
+  <text x="176" y="104" fill="#cccccc" font-size="13" font-family="Consolas, monospace">insiders.vscode.dev/agents</text>
+  <rect x="100" y="140" width="760" height="320" fill="#1e1e1e"/>
+  <text x="480" y="210" fill="#3794ff" font-size="22" text-anchor="middle" font-weight="600">VS Code Agents</text>
+  <text x="480" y="248" fill="#cccccc" font-size="15" text-anchor="middle">Open the Agents window in your browser</text>
+  <rect x="400" y="275" width="160" height="38" rx="6" fill="#3794ff"/>
+  <text x="480" y="300" fill="#ffffff" font-size="15" text-anchor="middle" font-weight="600">Open Agents</text>
+  <text x="480" y="460" fill="#858585" font-size="13" text-anchor="middle">insiders.vscode.dev/agents — works from any device</text>
+</svg>

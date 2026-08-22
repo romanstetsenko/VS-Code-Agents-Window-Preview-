@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="'Segoe UI', sans-serif">
+  <rect width="960" height="540" fill="#1e1e1e"/>
+  <text x="480" y="65" fill="#cccccc" font-size="24" text-anchor="middle" font-weight="600">Welcome</text>
+  <rect x="120" y="110" width="300" height="130" rx="6" fill="#252526"/>
+  <text x="140" y="145" fill="#3794ff" font-size="15">Get Started</text>
+  <rect x="140" y="165" width="200" height="12" rx="3" fill="#2d2d30"/>
+  <rect x="140" y="185" width="160" height="12" rx="3" fill="#2d2d30"/>
+  <rect x="440" y="110" width="300" height="130" rx="6" fill="#252526" stroke="#ffcc00" stroke-width="2"/>
+  <text x="460" y="145" fill="#ffcc00" font-size="15">Try out the new Agents window</text>
+  <rect x="460" y="165" width="220" height="12" rx="3" fill="#2d2d30"/>
+  <rect x="460" y="185" width="180" height="12" rx="3" fill="#2d2d30"/>
+  <rect x="760" y="110" width="80" height="130" rx="6" fill="#252526"/>
+  <text x="800" y="180" fill="#858585" font-size="13" text-anchor="middle">&#8594;</text>
+  <rect x="120" y="270" width="300" height="130" rx="6" fill="#252526"/>
+  <text x="140" y="305" fill="#3794ff" font-size="15">Recent</text>
+  <rect x="140" y="325" width="200" height="12" rx="3" fill="#2d2d30"/>
+  <rect x="140" y="345" width="160" height="12" rx="3" fill="#2d2d30"/>
+  <rect x="440" y="270" width="300" height="130" rx="6" fill="#252526"/>
+  <text x="460" y="305" fill="#3794ff" font-size="15">Help</text>
+  <rect x="460" y="325" width="200" height="12" rx="3" fill="#2d2d30"/>
+  <rect x="460" y="345" width="160" height="12" rx="3" fill="#2d2d30"/>
+  <text x="480" y="450" fill="#858585" font-size="13" text-anchor="middle">"Try out the new Agents window" link on the Welcome page</text>
+</svg>

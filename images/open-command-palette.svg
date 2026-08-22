@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="'Segoe UI', sans-serif">
+  <rect width="960" height="540" fill="#1e1e1e"/>
+  <rect width="960" height="540" fill="#000000" opacity="0.45"/>
+  <rect x="230" y="120" width="500" height="270" rx="6" fill="#252526" stroke="#3c3c3c"/>
+  <rect x="250" y="135" width="460" height="30" rx="4" fill="#1e1e1e"/>
+  <text x="262" y="155" fill="#858585" font-size="15">&#62;</text>
+  <text x="282" y="155" fill="#cccccc" font-size="15">Chat: Open Agents Window</text>
+  <rect x="250" y="178" width="460" height="28" rx="3" fill="#094771"/>
+  <text x="262" y="197" fill="#ffffff" font-size="14">Chat: Open Agents Window</text>
+  <text x="262" y="228" fill="#cccccc" font-size="14">Chat: Open Chat</text>
+  <text x="262" y="254" fill="#cccccc" font-size="14">View: Toggle Terminal</text>
+  <text x="262" y="280" fill="#cccccc" font-size="14">Chat: New Session</text>
+  <text x="262" y="306" fill="#cccccc" font-size="14">Chat: Clear Session</text>
+  <text x="480" y="430" fill="#858585" font-size="13" text-anchor="middle">Ctrl+Shift+P &#8594; Chat: Open Agents Window</text>
+</svg>
