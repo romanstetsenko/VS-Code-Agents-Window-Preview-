@@ -44,4 +44,4 @@ No build step needed — `index.html` loads reveal.js from a CDN.
 - `←` — previous frame
 - `Esc` — overview grid
 - `F` — fullscreen
-- `S` — speaker notes (none yet)
+- `S` — speaker notes (press to open the notes window)

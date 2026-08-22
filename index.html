@@ -104,6 +104,7 @@
           <li>Optimized for <b>agent-first</b> workflows.</li>
         </ul>
         <p class="step-hint">Source: code.visualstudio.com/docs/agents/run/agents-window</p>
+      <aside class="notes">Welcome. This is the VS Code Agents Window, currently in Preview. It is a dedicated window where chat is the primary interface, not the editor. It spans all your workspaces, so you can hand off high-level tasks, review results, and run multiple agents in parallel. Everything here mirrors the official docs.</aside>
       </section>
 
       <!-- 2a. WHY: Orchestrate -->
@@ -114,6 +115,7 @@
           <div class="callout down" style="top:8%; left:50%; transform:translateX(-50%);">One window, many workspaces</div>
         </div>
         <p class="subtitle">Manage sessions for all your workspaces without opening each in a separate window — assign &amp; track work across projects at once.</p>
+      <aside class="notes">First benefit: orchestration. Instead of one window per project, you manage sessions for every workspace from this one window. Assign and track work across projects at the same time.</aside>
       </section>
 
       <!-- 2b. WHY: Agent-first -->
@@ -124,6 +126,7 @@
           <div class="callout down" style="top:8%; left:50%; transform:translateX(-50%);">Describe the outcome</div>
         </div>
         <p class="subtitle">Describe the outcome you want in high-level requirements and let the agent figure out the implementation — not prompts framed around specific code changes.</p>
+      <aside class="notes">Second benefit: agent-first thinking. You describe the outcome, what you want, and the agent figures out the implementation. You are not writing prompts about specific code edits.</aside>
       </section>
 
       <!-- 2c. WHY: Switch surfaces -->
@@ -134,6 +137,7 @@
           <div class="callout down" style="top:8%; left:50%; transform:translateX(-50%);">Move to Chat view anytime</div>
         </div>
         <p class="subtitle">Both surfaces share the same sessions, settings, and keybindings — so you never lose context when you get closer to the code.</p>
+      <aside class="notes">Third benefit: you are never locked in. Jump to the Chat view whenever you want to get closer to the code. Sessions, settings, and keybindings are shared, so context is never lost.</aside>
       </section>
 
       <!-- 3a. OPEN: title bar button -->
@@ -144,6 +148,7 @@
           <div class="callout down" style="top:6%; left:70%;">Click <b>Open in Agents</b></div>
         </div>
         <p class="step-hint">Frame 1 of 6 — method 1</p>
+      <aside class="notes">To open it, the simplest path is the Open in Agents button in the title bar of your main editor window.</aside>
       </section>
 
       <!-- 3b. OPEN: command palette -->
@@ -154,6 +159,7 @@
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Ctrl+Shift+P → Chat: Open Agents Window</div>
         </div>
         <p class="step-hint">Frame 2 of 6 — method 2</p>
+      <aside class="notes">Or the Command Palette: Ctrl+Shift+P, then Chat: Open Agents Window.</aside>
       </section>
 
       <!-- 3c. OPEN: welcome page -->
@@ -164,6 +170,7 @@
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Select the welcome link</div>
         </div>
         <p class="step-hint">Frame 3 of 6 — method 3</p>
+      <aside class="notes">Or from the Welcome page, the Try out the new Agents window link.</aside>
       </section>
 
       <!-- 3d. OPEN: terminal -->
@@ -174,6 +181,7 @@
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Run <b>code --agents</b></div>
         </div>
         <p class="step-hint">Frame 4 of 6 — method 4</p>
+      <aside class="notes">Or from a terminal: code --agents.</aside>
       </section>
 
       <!-- 3e. OPEN: browser -->
@@ -184,6 +192,7 @@
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Open in any browser</div>
         </div>
         <p class="step-hint">Frame 5 of 6 — method 5 (remote)</p>
+      <aside class="notes">Or in a browser at insiders.vscode.dev/agents, useful from any device.</aside>
       </section>
 
       <!-- 3f. OPEN: result -->
@@ -202,6 +211,7 @@
             </ul>
           </div>
         </div>
+      <aside class="notes">Whichever path you use, you get a dedicated Agents window. If you are already signed into GitHub in VS Code, you are signed in here too. No context switching between editor and agent.</aside>
       </section>
 
       <!-- 4. INTERFACE OVERVIEW: 5 areas -->
@@ -212,6 +222,7 @@
           <div class="callout right" style="top:20%; left:2%;">Sessions list</div>
         </div>
         <p class="subtitle">View &amp; manage sessions across workspaces (grouped by workspace by default).</p>
+      <aside class="notes">The Sessions list, on the left. All your sessions across workspaces, grouped by workspace by default. Select one to make it active.</aside>
       </section>
 
       <section>
@@ -221,6 +232,7 @@
           <div class="callout right" style="top:45%; left:2%;">Customizations panel</div>
         </div>
         <p class="subtitle">Access agent customizations for your workflow &amp; preferences.</p>
+      <aside class="notes">Below it, the Customizations panel: your agents, skills, instructions, hooks, and MCP servers.</aside>
       </section>
 
       <section>
@@ -230,6 +242,7 @@
           <div class="callout left" style="top:30%; right:2%;">Chat area</div>
         </div>
         <p class="subtitle">View &amp; interact with the active agent chat conversation.</p>
+      <aside class="notes">Center: the Chat area, your conversation with the active agent.</aside>
       </section>
 
       <section>
@@ -239,6 +252,7 @@
           <div class="callout left" style="top:55%; right:2%;">Changes panel</div>
         </div>
         <p class="subtitle">Review changes for the active session.</p>
+      <aside class="notes">The Changes panel: review what the agent changed for the active session.</aside>
       </section>
 
       <section>
@@ -248,6 +262,7 @@
           <div class="callout left" style="top:75%; right:2%;">Files panel</div>
         </div>
         <p class="subtitle">Browse the workspace associated with the active session.</p>
+      <aside class="notes">And the Files panel: browse the workspace tied to the active session.</aside>
       </section>
 
       <section>
@@ -267,6 +282,7 @@
             </ul>
           </div>
         </div>
+      <aside class="notes">Quick recap of the five areas: Sessions list to manage, Customizations to configure, Chat to talk, Changes to review, Files to browse. One coherent surface.</aside>
       </section>
 
       <!-- 5. ACTIVE SESSION -->
@@ -277,6 +293,7 @@
           <div class="callout right" style="top:20%; left:2%;">Select a session</div>
         </div>
         <p class="subtitle">The active session has focus; its context drives what you see and which workspace your actions apply to.</p>
+      <aside class="notes">The active session is the one in focus. Click it in the list and everything else reorients to it.</aside>
       </section>
 
       <section>
@@ -294,6 +311,7 @@
             </ul>
           </div>
         </div>
+      <aside class="notes">When the active session changes, Chat, Files, Changes, Terminal, Tasks, and Browser all update to that session. The active one is highlighted. You focus one project at a time.</aside>
       </section>
 
       <!-- 6. START AGENT SESSION -->
@@ -304,6 +322,7 @@
           <div class="callout right" style="top:8%; left:2%;">Select <b>New</b> (Ctrl+N)</div>
         </div>
         <p class="step-hint">Frame 1 of 5</p>
+      <aside class="notes">Starting a session: hit New, or Ctrl+N.</aside>
       </section>
 
       <section>
@@ -313,6 +332,7 @@
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Choose workspace</div>
         </div>
         <p class="step-hint">Frame 2 of 5</p>
+      <aside class="notes">Pick a workspace: local folder, GitHub repo, or remote via SSH or dev tunnel. Or hover a workspace and click the plus.</aside>
       </section>
 
       <section>
@@ -322,6 +342,7 @@
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Choose harness</div>
         </div>
         <p class="step-hint">Frame 3 of 5</p>
+      <aside class="notes">Choose a harness: Copilot, Claude, or Codex. Availability depends on the workspace type.</aside>
       </section>
 
       <section>
@@ -331,6 +352,7 @@
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Type prompt + Enter</div>
         </div>
         <p class="step-hint">Frame 4 of 5</p>
+      <aside class="notes">Describe what you want and press Enter. Optionally set the model, permissions, and isolation mode first.</aside>
       </section>
 
       <section>
@@ -348,6 +370,7 @@
             </ul>
           </div>
         </div>
+      <aside class="notes">The agent works live: Files and Changes update as it goes. Alt+Enter runs it in the background so you stay in your current session. Come back anytime to check progress or answer a question.</aside>
       </section>
 
       <!-- 7. QUICK CHAT -->
@@ -358,6 +381,7 @@
           <div class="callout right" style="top:10%; left:2%;">+ on Chats (Ctrl+K Ctrl+N)</div>
         </div>
         <p class="step-hint">Frame 1 of 4</p>
+      <aside class="notes">Quick chats: click the plus on the Chats header, or Ctrl+K Ctrl+N. These are not tied to a workspace.</aside>
       </section>
 
       <section>
@@ -367,6 +391,7 @@
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Choose harness</div>
         </div>
         <p class="step-hint">Frame 2 of 4</p>
+      <aside class="notes">Pick a harness from the dropdown.</aside>
       </section>
 
       <section>
@@ -376,6 +401,7 @@
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Type prompt</div>
         </div>
         <p class="step-hint">Frame 3 of 4</p>
+      <aside class="notes">Type your prompt. Great for throwaway questions.</aside>
       </section>
 
       <section>
@@ -393,6 +419,7 @@
             </ul>
           </div>
         </div>
+      <aside class="notes">Quick chats live in the Chats group, separate from workspace sessions. Perfect for one-off asks that do not belong to a project.</aside>
       </section>
 
       <!-- 8a. INSPECT FILES & CHANGES -->
@@ -403,6 +430,7 @@
           <div class="callout left" style="top:20%; right:2%;">Select Files / Changes</div>
         </div>
         <p class="step-hint">Frame 1 of 3</p>
+      <aside class="notes">When the agent is done, review. Select Files or Changes for the active session.</aside>
       </section>
 
       <section>
@@ -412,6 +440,7 @@
           <div class="callout left" style="top:50%; right:2%;">Open a changed file</div>
         </div>
         <p class="step-hint">Frame 2 of 3</p>
+      <aside class="notes">Open a changed file to see the diff. Use the dropdown to scope: branch, uncommitted, all, or last agent turn.</aside>
       </section>
 
       <section>
@@ -429,6 +458,7 @@
             </ul>
           </div>
         </div>
+      <aside class="notes">Select a block of text in the diff to leave range-based feedback for the agent. Catch issues before they merge.</aside>
       </section>
 
       <!-- 8b. VALIDATE LOCALLY -->
@@ -439,6 +469,7 @@
           <div class="callout left" style="top:15%; right:2%;">Open Integrated Browser / Add Task</div>
         </div>
         <p class="step-hint">Frame 1 of 2</p>
+      <aside class="notes">Validate locally before committing. Open a localhost link in the integrated browser, or add a Task to run build or tests.</aside>
       </section>
 
       <section>
@@ -456,6 +487,7 @@
             </ul>
           </div>
         </div>
+      <aside class="notes">Tasks run in the session context: run a build, tests, or a dev server to confirm nothing breaks.</aside>
       </section>
 
       <!-- 8c. COMMIT -->
@@ -466,6 +498,7 @@
           <div class="callout left" style="top:70%; right:2%;">Commit Changes</div>
         </div>
         <p class="step-hint">Frame 1 of 2</p>
+      <aside class="notes">Ready? Hit Commit Changes in the Changes view.</aside>
       </section>
 
       <section>
@@ -483,6 +516,7 @@
             </ul>
           </div>
         </div>
+      <aside class="notes">VS Code writes the commit message from the diffs and commits everything. Some sessions also offer Commit and Sync.</aside>
       </section>
 
       <!-- 9. MULTIPLE SESSIONS -->
@@ -493,6 +527,7 @@
           <div class="callout right" style="top:20%; left:2%;">Open to the Side / drag / Alt+click</div>
         </div>
         <p class="step-hint">Frame 1 of 2</p>
+      <aside class="notes">Work with several at once: Open to the Side, drag a session into the view, or Alt+click.</aside>
       </section>
 
       <section>
@@ -510,6 +545,7 @@
             </ul>
           </div>
         </div>
+      <aside class="notes">Compare results side by side. Ctrl+1 through Ctrl+9 focus sessions by grid position. Pin a view so it is not replaced. Parallel work without losing focus.</aside>
       </section>
 
       <!-- 10. CUSTOMIZE -->
@@ -520,6 +556,7 @@
           <div class="callout left" style="top:20%; right:2%;">Customizations panel / settings scope</div>
         </div>
         <p class="step-hint">Frame 1 of 2</p>
+      <aside class="notes">Customize via the Customizations panel or settings. Note the scope: settings can be overridden just for the Agents window.</aside>
       </section>
 
       <section>
@@ -537,6 +574,7 @@
             </ul>
           </div>
         </div>
+      <aside class="notes">Your agents, skills, instructions, hooks, MCP, and plugins carry over. Settings inherit but can be overridden per window. Opt extensions in with extensions.supportAgentsWindow.</aside>
       </section>
 
       <!-- 11. LIMITATIONS & NEXT STEPS -->
@@ -558,6 +596,7 @@
             <li><a href="https://code.visualstudio.com/docs/agents/run/remote-agent-sessions">Remote agent sessions</a></li>
           </ul>
         </div>
+      <aside class="notes">It is Preview, so caveats: supported harnesses, Copilot Cloud needs GitHub-backed repos, no plan-agent dropdown (use /plan), multi-chat only for Copilot and Claude, no multi-root yet. Links for deeper reading are on screen.</aside>
       </section>
 
     </div>
@@ -567,11 +606,12 @@
 
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',
-      plugins: [ RevealHighlight ]
+      plugins: [ RevealHighlight, RevealNotes ]
     });
   </script>
 </body>
