@@ -24,8 +24,11 @@
     /* Frame layout: image centered with callout overlay */
     .frame {
       position: relative;
-      display: inline-block;
-      max-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 92vw;
+      max-height: 66vh;
       margin: 0 auto;
     }
     .frame img {
@@ -36,8 +39,8 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     }
     .frame .placeholder {
-      width: 70vw;
-      height: 50vh;
+      width: min(70vw, 820px);
+      height: min(44vh, 380px);
       display: flex;
       align-items: center;
       justify-content: center;
