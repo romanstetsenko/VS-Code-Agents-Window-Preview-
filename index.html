@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VS Code Agents Window (Preview)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+  <style>
+    :root {
+      --vscode-blue: #007acc;
+      --vscode-bg: #1e1e1e;
+      --callout-bg: #0b3d5c;
+      --callout-border: #3794ff;
+    }
+    .reveal { font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif; }
+    .reveal h1, .reveal h2, .reveal h3 { color: #fff; text-transform: none; letter-spacing: 0; }
+    .reveal h1 { font-size: 2.2em; }
+    .reveal h2 { font-size: 1.5em; color: #3794ff; }
+    .reveal .frame-title { margin-bottom: 0.4em; }
+    .reveal .subtitle { color: #cccccc; font-size: 0.9em; }
+
+    /* Frame layout: image centered with callout overlay */
+    .frame {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .frame img {
+      max-height: 62vh;
+      max-width: 100%;
+      border: 1px solid #333;
+      border-radius: 6px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+    .frame .placeholder {
+      width: 70vw;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #232323, #2d2d2d);
+      border: 2px dashed #555;
+      border-radius: 8px;
+      color: #bbb;
+      font-size: 1.1em;
+      padding: 2em;
+      text-align: center;
+    }
+
+    /* Callout / popup pointing at a UI element */
+    .callout {
+      position: absolute;
+      background: var(--callout-bg);
+      border: 2px solid var(--callout-border);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85em;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+      z-index: 10;
+    }
+    .callout::after {
+      content: "";
+      position: absolute;
+      width: 0; height: 0;
+      border: 10px solid transparent;
+    }
+    /* arrow pointing down (default) */
+    .callout.down::after { bottom: -20px; left: 50%; transform: translateX(-50%); border-top-color: var(--callout-border); }
+    .callout.up::after   { top: -20px; left: 50%; transform: translateX(-50%); border-bottom-color: var(--callout-border); }
+    .callout.left::after { left: -20px; top: 50%; transform: translateY(-50%); border-right-color: var(--callout-border); }
+    .callout.right::after{ right: -20px; top: 50%; transform: translateY(-50%); border-left-color: var(--callout-border); }
+
+    /* Result frame: image + benefit bullets */
+    .result { display: flex; gap: 1.5em; align-items: center; justify-content: center; }
+    .result .result-img { flex: 1 1 55%; }
+    .result .result-img img { max-height: 60vh; max-width: 100%; border-radius: 6px; border: 1px solid #333; }
+    .result .benefits { flex: 1 1 40%; text-align: left; }
+    .result .benefits h3 { color: #3794ff; font-size: 1.1em; margin-bottom: 0.4em; }
+    .result .benefits ul { margin: 0; padding-left: 1.1em; }
+    .result .benefits li { margin: 0.35em 0; color: #e6e6e6; font-size: 0.85em; }
+
+    .reveal .footer { position: fixed; bottom: 8px; right: 12px; font-size: 0.5em; color: #666; }
+    .reveal .step-hint { color: #888; font-size: 0.6em; margin-top: 0.6em; }
+    .reveal a { color: #3794ff; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1. INTRO -->
+      <section>
+        <h1>VS Code Agents Window <span style="color:#3794ff">(Preview)</span></h1>
+        <p class="subtitle">A dedicated VS Code window where chat is the primary interface.</p>
+        <ul style="font-size:0.8em; text-align:left; display:inline-block;">
+          <li>Works across <b>all your workspaces</b> from one window.</li>
+          <li>Assign high-level tasks, evaluate outcomes, run &amp; track <b>multiple agents in parallel</b>.</li>
+          <li>Optimized for <b>agent-first</b> workflows.</li>
+        </ul>
+        <p class="step-hint">Source: code.visualstudio.com/docs/agents/run/agents-window</p>
+      </section>
+
+      <!-- 2a. WHY: Orchestrate -->
+      <section>
+        <h2 class="frame-title">Why use it — Orchestrate across projects</h2>
+        <div class="frame">
+          <div class="placeholder">Main editor window + Agents window side by side,<br>one place managing sessions for many workspaces.</div>
+          <div class="callout down" style="top:8%; left:50%; transform:translateX(-50%);">One window, many workspaces</div>
+        </div>
+        <p class="subtitle">Manage sessions for all your workspaces without opening each in a separate window — assign &amp; track work across projects at once.</p>
+      </section>
+
+      <!-- 2b. WHY: Agent-first -->
+      <section>
+        <h2 class="frame-title">Why use it — Work agent-first, not code-first</h2>
+        <div class="frame">
+          <div class="placeholder">Prompt box with a high-level requirement<br>e.g. "Add a dark-mode toggle to settings"</div>
+          <div class="callout down" style="top:8%; left:50%; transform:translateX(-50%);">Describe the outcome</div>
+        </div>
+        <p class="subtitle">Describe the outcome you want in high-level requirements and let the agent figure out the implementation — not prompts framed around specific code changes.</p>
+      </section>
+
+      <!-- 2c. WHY: Switch surfaces -->
+      <section>
+        <h2 class="frame-title">Why use it — Switch freely between surfaces</h2>
+        <div class="frame">
+          <div class="placeholder">Toggle between Agents window and Chat view,<br>shared sessions / settings / keybindings.</div>
+          <div class="callout down" style="top:8%; left:50%; transform:translateX(-50%);">Move to Chat view anytime</div>
+        </div>
+        <p class="subtitle">Both surfaces share the same sessions, settings, and keybindings — so you never lose context when you get closer to the code.</p>
+      </section>
+
+      <!-- 3a. OPEN: title bar button -->
+      <section>
+        <h2 class="frame-title">Open the Agents window</h2>
+        <div class="frame">
+          <div class="placeholder">VS Code main window title bar with the<br>"Open in Agents" button highlighted.</div>
+          <div class="callout down" style="top:6%; left:70%;">Click <b>Open in Agents</b></div>
+        </div>
+        <p class="step-hint">Frame 1 of 6 — method 1</p>
+      </section>
+
+      <!-- 3b. OPEN: command palette -->
+      <section>
+        <h2 class="frame-title">Open the Agents window</h2>
+        <div class="frame">
+          <div class="placeholder">Command Palette showing<br>"Chat: Open Agents Window".</div>
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Ctrl+Shift+P → Chat: Open Agents Window</div>
+        </div>
+        <p class="step-hint">Frame 2 of 6 — method 2</p>
+      </section>
+
+      <!-- 3c. OPEN: welcome page -->
+      <section>
+        <h2 class="frame-title">Open the Agents window</h2>
+        <div class="frame">
+          <div class="placeholder">VS Code Welcome page with<br>"Try out the new Agents window" link.</div>
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Select the welcome link</div>
+        </div>
+        <p class="step-hint">Frame 3 of 6 — method 3</p>
+      </section>
+
+      <!-- 3d. OPEN: terminal -->
+      <section>
+        <h2 class="frame-title">Open the Agents window</h2>
+        <div class="frame">
+          <div class="placeholder">Terminal with the command<br><code>code --agents</code> typed.</div>
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Run <b>code --agents</b></div>
+        </div>
+        <p class="step-hint">Frame 4 of 6 — method 4</p>
+      </section>
+
+      <!-- 3e. OPEN: browser -->
+      <section>
+        <h2 class="frame-title">Open the Agents window</h2>
+        <div class="frame">
+          <div class="placeholder">Browser at<br>insiders.vscode.dev/agents</div>
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Open in any browser</div>
+        </div>
+        <p class="step-hint">Frame 5 of 6 — method 5 (remote)</p>
+      </section>
+
+      <!-- 3f. OPEN: result -->
+      <section>
+        <h2 class="frame-title">Result — dedicated Agents window opens</h2>
+        <div class="result">
+          <div class="result-img">
+            <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Agents window interface">
+          </div>
+          <div class="benefits">
+            <h3>How it helps</h3>
+            <ul>
+              <li>One window dedicated to agents — no context switch.</li>
+              <li>Already signed in if GitHub is connected in VS Code.</li>
+              <li>Opens alongside your main editor window.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. INTERFACE OVERVIEW: 5 areas -->
+      <section>
+        <h2 class="frame-title">Interface overview — Sessions list</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Agents window UI">
+          <div class="callout right" style="top:20%; left:2%;">Sessions list</div>
+        </div>
+        <p class="subtitle">View &amp; manage sessions across workspaces (grouped by workspace by default).</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Interface overview — Customizations panel</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Agents window UI">
+          <div class="callout right" style="top:45%; left:2%;">Customizations panel</div>
+        </div>
+        <p class="subtitle">Access agent customizations for your workflow &amp; preferences.</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Interface overview — Chat area</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Agents window UI">
+          <div class="callout left" style="top:30%; right:2%;">Chat area</div>
+        </div>
+        <p class="subtitle">View &amp; interact with the active agent chat conversation.</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Interface overview — Changes panel</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Agents window UI">
+          <div class="callout left" style="top:55%; right:2%;">Changes panel</div>
+        </div>
+        <p class="subtitle">Review changes for the active session.</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Interface overview — Files panel</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Agents window UI">
+          <div class="callout left" style="top:75%; right:2%;">Files panel</div>
+        </div>
+        <p class="subtitle">Browse the workspace associated with the active session.</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Result — five areas, one workflow</h2>
+        <div class="result">
+          <div class="result-img">
+            <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Agents window UI">
+          </div>
+          <div class="benefits">
+            <h3>What each area is for</h3>
+            <ul>
+              <li><b>Sessions list</b> — manage sessions across workspaces.</li>
+              <li><b>Customizations</b> — agents, skills, instructions, hooks, MCP.</li>
+              <li><b>Chat</b> — talk to the active agent.</li>
+              <li><b>Changes</b> — review edits &amp; Git actions.</li>
+              <li><b>Files</b> — browse the session workspace.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. ACTIVE SESSION -->
+      <section>
+        <h2 class="frame-title">Understand the active session</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Sessions list">
+          <div class="callout right" style="top:20%; left:2%;">Select a session</div>
+        </div>
+        <p class="subtitle">The active session has focus; its context drives what you see and which workspace your actions apply to.</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Result — window updates to that session</h2>
+        <div class="result">
+          <div class="result-img">
+            <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Active session highlighted">
+          </div>
+          <div class="benefits">
+            <h3>How it helps</h3>
+            <ul>
+              <li>Chat, Files, Changes, Terminal, Tasks &amp; Browser update to the selected session.</li>
+              <li>Active session is highlighted in the list.</li>
+              <li>Focus one project at a time — no mix-ups.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. START AGENT SESSION -->
+      <section>
+        <h2 class="frame-title">Start an agent session — New</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="New button">
+          <div class="callout right" style="top:8%; left:2%;">Select <b>New</b> (Ctrl+N)</div>
+        </div>
+        <p class="step-hint">Frame 1 of 5</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Start an agent session — pick workspace</h2>
+        <div class="frame">
+          <div class="placeholder">Workspace dropdown:<br>local folder, GitHub repo, or remote (SSH / dev tunnel).<br>Or hover a workspace and click +.</div>
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Choose workspace</div>
+        </div>
+        <p class="step-hint">Frame 2 of 5</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Start an agent session — choose harness</h2>
+        <div class="frame">
+          <div class="placeholder">Harness dropdown showing<br>Copilot, Claude, Codex.</div>
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Choose harness</div>
+        </div>
+        <p class="step-hint">Frame 3 of 5</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Start an agent session — type prompt</h2>
+        <div class="frame">
+          <div class="placeholder">Prompt input box with a task description<br>and Enter to submit.</div>
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Type prompt + Enter</div>
+        </div>
+        <p class="step-hint">Frame 4 of 5</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Result — agent works live</h2>
+        <div class="result">
+          <div class="result-img">
+            <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-changes.png" alt="Changes panel updating">
+          </div>
+          <div class="benefits">
+            <h3>How it helps</h3>
+            <ul>
+              <li>Agent responds in chat; <b>Files</b> &amp; <b>Changes</b> update live.</li>
+              <li>Run in background with <b>Alt+Enter</b> — keep current session.</li>
+              <li>Switch away and return to check progress or reply.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. QUICK CHAT -->
+      <section>
+        <h2 class="frame-title">Start a quick chat — + on Chats</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-quick-chat.png" alt="Quick chat group">
+          <div class="callout right" style="top:10%; left:2%;">+ on Chats (Ctrl+K Ctrl+N)</div>
+        </div>
+        <p class="step-hint">Frame 1 of 4</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Start a quick chat — choose harness</h2>
+        <div class="frame">
+          <div class="placeholder">Harness dropdown for the quick chat.</div>
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Choose harness</div>
+        </div>
+        <p class="step-hint">Frame 2 of 4</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Start a quick chat — type prompt</h2>
+        <div class="frame">
+          <div class="placeholder">Quick chat input box.</div>
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Type prompt</div>
+        </div>
+        <p class="step-hint">Frame 3 of 4</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Result — lightweight, workspace-free chat</h2>
+        <div class="result">
+          <div class="result-img">
+            <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-quick-chat.png" alt="Quick chat group">
+          </div>
+          <div class="benefits">
+            <h3>How it helps</h3>
+            <ul>
+              <li>Not scoped to a workspace — ask anything.</li>
+              <li>Appears in the <b>Chats</b> group, separate from sessions.</li>
+              <li>Great for one-off questions or tasks.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8a. INSPECT FILES & CHANGES -->
+      <section>
+        <h2 class="frame-title">Review — select Files / Changes</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-changes.png" alt="Changes panel">
+          <div class="callout left" style="top:20%; right:2%;">Select Files / Changes</div>
+        </div>
+        <p class="step-hint">Frame 1 of 3</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Review — pick a diff</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-changes.png" alt="Diff view">
+          <div class="callout left" style="top:50%; right:2%;">Open a changed file</div>
+        </div>
+        <p class="step-hint">Frame 2 of 3</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Result — review diffs &amp; give feedback</h2>
+        <div class="result">
+          <div class="result-img">
+            <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-changes.png" alt="Changes panel">
+          </div>
+          <div class="benefits">
+            <h3>How it helps</h3>
+            <ul>
+              <li>Review diffs; use the dropdown for branch / uncommitted / all / last turn.</li>
+              <li>Select a block to leave <b>range-based feedback</b> for the agent.</li>
+              <li>Catch issues before they land.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8b. VALIDATE LOCALLY -->
+      <section>
+        <h2 class="frame-title">Validate locally — browser &amp; tasks</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-integrated-browser.png" alt="Integrated browser">
+          <div class="callout left" style="top:15%; right:2%;">Open Integrated Browser / Add Task</div>
+        </div>
+        <p class="step-hint">Frame 1 of 2</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Result — verify it doesn't break</h2>
+        <div class="result">
+          <div class="result-img">
+            <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-add-task.png" alt="Add Task dialog">
+          </div>
+          <div class="benefits">
+            <h3>How it helps</h3>
+            <ul>
+              <li>Open <code>localhost</code> in the integrated browser to verify UI.</li>
+              <li>Add a Task (build/test) to run in the session context.</li>
+              <li>Start a dev server to confirm running behavior.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8c. COMMIT -->
+      <section>
+        <h2 class="frame-title">Commit changes</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-changes.png" alt="Commit Changes">
+          <div class="callout left" style="top:70%; right:2%;">Commit Changes</div>
+        </div>
+        <p class="step-hint">Frame 1 of 2</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Result — auto commit message</h2>
+        <div class="result">
+          <div class="result-img">
+            <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-changes.png" alt="Commit">
+          </div>
+          <div class="benefits">
+            <h3>How it helps</h3>
+            <ul>
+              <li>VS Code generates a commit message from the changes.</li>
+              <li>Commits all current changes in one action.</li>
+              <li>Optional <b>Commit and Sync Changes</b> per session type.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. MULTIPLE SESSIONS -->
+      <section>
+        <h2 class="frame-title">Work with multiple sessions</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Sessions">
+          <div class="callout right" style="top:20%; left:2%;">Open to the Side / drag / Alt+click</div>
+        </div>
+        <p class="step-hint">Frame 1 of 2</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Result — compare &amp; manage in parallel</h2>
+        <div class="result">
+          <div class="result-img">
+            <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-ui-annotated.png" alt="Sessions">
+          </div>
+          <div class="benefits">
+            <h3>How it helps</h3>
+            <ul>
+              <li>Compare results; <b>Ctrl+1..9</b> to focus by grid position.</li>
+              <li>Pin a session view so it isn't replaced.</li>
+              <li>Work across projects without losing focus.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. CUSTOMIZE -->
+      <section>
+        <h2 class="frame-title">Customize &amp; configure</h2>
+        <div class="frame">
+          <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-settings.png" alt="Settings scopes">
+          <div class="callout left" style="top:20%; right:2%;">Customizations panel / settings scope</div>
+        </div>
+        <p class="step-hint">Frame 1 of 2</p>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Result — your config carries over</h2>
+        <div class="result">
+          <div class="result-img">
+            <img src="https://code.visualstudio.com/assets/docs/agents/agents-window/agents-window-settings.png" alt="Settings">
+          </div>
+          <div class="benefits">
+            <h3>How it helps</h3>
+            <ul>
+              <li>Manage agents, skills, instructions, hooks, MCP, plugins.</li>
+              <li>Settings carry over; override per window via scope.</li>
+              <li>Opt extensions in with <code>extensions.supportAgentsWindow</code>.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. LIMITATIONS & NEXT STEPS -->
+      <section>
+        <h2 class="frame-title">Limitations &amp; Next steps</h2>
+        <div style="text-align:left; display:inline-block; font-size:0.8em;">
+          <p><b>Preview caveats:</b></p>
+          <ul>
+            <li>Supports Copilot, cloud, Claude &amp; Codex on the Agent Host (Local/Codex-via-OpenAI run from main window).</li>
+            <li>Copilot Cloud only for GitHub-backed repos (Copilot still usable for others).</li>
+            <li>No plan agent in dropdown — use <code>/plan</code>.</li>
+            <li>Multi-chat per session: Copilot &amp; Claude only. Multi-root not yet supported.</li>
+          </ul>
+          <p><b>Learn more:</b></p>
+          <ul>
+            <li><a href="https://code.visualstudio.com/docs/chat/chat-overview">Chat overview</a></li>
+            <li><a href="https://code.visualstudio.com/docs/agents/run/sessions/manage-sessions">Manage sessions</a></li>
+            <li><a href="https://code.visualstudio.com/docs/agents/run/review-code-edits">Review AI-generated edits</a></li>
+            <li><a href="https://code.visualstudio.com/docs/agents/run/remote-agent-sessions">Remote agent sessions</a></li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="footer">VS Code Agents Window (Preview) — hosted on GitHub Pages</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      plugins: [ RevealHighlight ]
+    });
+  </script>
+</body>
+</html>
