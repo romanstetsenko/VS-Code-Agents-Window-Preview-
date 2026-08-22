@@ -4,7 +4,7 @@ A slide deck for developers introducing the **VS Code Agents Window (Preview)**.
 Built with [reveal.js](https://revealjs.com/) and hosted for free on **GitHub Pages**.
 
 Content mirrors the official docs:
-https://code.visualstudio.com/docs/agents/run/agents-window (no invented features).
+https://code.visualstudio.com/docs/agents/run/agents-window.
 
 ## View the deck
 
