@@ -85,10 +85,10 @@
     .result { display: flex; gap: 1.5em; align-items: center; justify-content: center; }
     .result .result-img { flex: 1 1 55%; }
     .result .result-img img { max-height: 60vh; max-width: 100%; border-radius: 6px; border: 1px solid #333; }
-    .result .benefits { flex: 1 1 40%; text-align: left; }
-    .result .benefits h3 { color: #3794ff; font-size: 1.1em; margin-bottom: 0.4em; }
+    .result .benefits { flex: 1 1 40%; text-align: left; max-height: 66vh; overflow: hidden; }
+    .result .benefits h3 { color: #3794ff; font-size: 1.0em; margin-bottom: 0.3em; }
     .result .benefits ul { margin: 0; padding-left: 1.1em; }
-    .result .benefits li { margin: 0.35em 0; color: #e6e6e6; font-size: 0.85em; }
+    .result .benefits li { margin: 0.25em 0; color: #e6e6e6; font-size: 0.72em; line-height: 1.25; }
 
     .reveal .footer { position: fixed; bottom: 8px; right: 12px; font-size: 0.5em; color: #666; }
     .reveal .step-hint { color: #888; font-size: 0.6em; margin-top: 0.6em; }
@@ -116,8 +116,8 @@
       <section>
         <h2 class="frame-title">Why use it — Orchestrate across projects</h2>
         <div class="frame">
-          <img src="images/real-overview.png" alt="Real VS Code Agents Window overview">
-          <div class="callout down" style="top:8%; left:50%; transform:translateX(-50%);">One window, many workspaces</div>
+          <img src="images/real-overview-2_r.png" alt="Real VS Code Agents Window with workspaces">
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">One window, many workspaces</div>
         </div>
         <p class="subtitle">Manage sessions for all your workspaces without opening each in a separate window — assign &amp; track work across projects at once.</p>
       <aside class="notes">First benefit: orchestration. Instead of one window per project, you manage sessions for every workspace from this one window. Assign and track work across projects at the same time.</aside>
@@ -128,7 +128,7 @@
         <h2 class="frame-title">Why use it — Work agent-first, not code-first</h2>
         <div class="frame">
           <img src="images/real-composer.png" alt="Real Agents Window composer prompt">
-          <div class="callout down" style="top:8%; left:50%; transform:translateX(-50%);">Describe the outcome</div>
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Describe the outcome you want</div>
         </div>
         <p class="subtitle">Describe the outcome you want in high-level requirements and let the agent figure out the implementation — not prompts framed around specific code changes.</p>
       <aside class="notes">Second benefit: agent-first thinking. You describe the outcome, what you want, and the agent figures out the implementation. You are not writing prompts about specific code edits.</aside>
@@ -138,8 +138,8 @@
       <section>
         <h2 class="frame-title">Why use it — Switch freely between surfaces</h2>
         <div class="frame">
-          <img src="images/real-open-in-editor.png" alt="Real Agents Window Open in Editor button">
-          <div class="callout down" style="top:8%; left:50%; transform:translateX(-50%);">Move to Chat view anytime</div>
+          <img src="images/real-session-view_r.png" alt="Real Agents Window chat view">
+          <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Move to Chat view anytime</div>
         </div>
         <p class="subtitle">Both surfaces share the same sessions, settings, and keybindings — so you never lose context when you get closer to the code.</p>
       <aside class="notes">Third benefit: you are never locked in. Jump to the Chat view whenever you want to get closer to the code. Sessions, settings, and keybindings are shared, so context is never lost.</aside>
@@ -149,7 +149,7 @@
       <section>
         <h2 class="frame-title">Open the Agents window</h2>
         <div class="frame">
-          <img src="images/open-titlebar.svg" alt="Title bar Open in Agents button">
+          <img src="images/open-titlebar.png" alt="Agents window UI — Open in Agents">
           <div class="callout down" style="top:6%; left:70%;">Click <b>Open in Agents</b></div>
         </div>
         <p class="step-hint">Frame 1 of 6 — method 1</p>
@@ -160,7 +160,7 @@
       <section>
         <h2 class="frame-title">Open the Agents window</h2>
         <div class="frame">
-          <img src="images/real-command-palette.png" alt="Command Palette Chat Open Agents Window">
+          <img src="images/real-command-palette.png" alt="Command Palette Chat Open Agents Window with workspace">
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Ctrl+Shift+P → Chat: Open Agents Window</div>
         </div>
         <p class="step-hint">Frame 2 of 6 — method 2</p>
@@ -171,7 +171,7 @@
       <section>
         <h2 class="frame-title">Open the Agents window</h2>
         <div class="frame">
-          <img src="images/open-welcome.svg" alt="Welcome page Try out the new Agents window">
+          <img src="images/open-welcome.png" alt="Agents window UI — welcome">
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Select the welcome link</div>
         </div>
         <p class="step-hint">Frame 3 of 6 — method 3</p>
@@ -182,7 +182,7 @@
       <section>
         <h2 class="frame-title">Open the Agents window</h2>
         <div class="frame">
-          <img src="images/open-terminal.svg" alt="Terminal with code --agents">
+          <img src="images/open-terminal.png" alt="Agents window UI — terminal">
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Run <b>code --agents</b></div>
         </div>
         <p class="step-hint">Frame 4 of 6 — method 4</p>
@@ -382,8 +382,8 @@
       <section>
         <h2 class="frame-title">Start a quick chat — + on Chats</h2>
         <div class="frame">
-          <img src="images/real-session-view_r.png" alt="Quick chat group">
-          <div class="callout right" style="top:10%; left:2%;">+ on Chats (Ctrl+K Ctrl+N)</div>
+          <img src="images/real-quick-chat.png" alt="Quick chat group in the Agents window">
+          <div class="callout right" style="top:8%; left:2%;">+ on Chats (Ctrl+K Ctrl+N)</div>
         </div>
         <p class="step-hint">Frame 1 of 4</p>
       <aside class="notes">Quick chats: click the plus on the Chats header, or Ctrl+K Ctrl+N. These are not tied to a workspace.</aside>
@@ -413,7 +413,7 @@
         <h2 class="frame-title">Result — lightweight, workspace-free chat</h2>
         <div class="result">
           <div class="result-img">
-            <img src="images/real-session-view_r.png" alt="Quick chat group">
+            <img src="images/real-quick-chat.png" alt="Quick chat group in the Agents window">
           </div>
           <div class="benefits">
             <h3>How it helps</h3>
@@ -432,7 +432,7 @@
         <h2 class="frame-title">Review — select Files / Changes</h2>
         <div class="frame">
           <img src="images/real-changes_r.png" alt="Changes panel">
-          <div class="callout left" style="top:20%; right:2%;">Select Files / Changes</div>
+          <div class="callout left" style="top:55%; right:2%;">Select Files / Changes</div>
         </div>
         <p class="step-hint">Frame 1 of 3</p>
       <aside class="notes">When the agent is done, review. Select Files or Changes for the active session.</aside>
@@ -442,7 +442,7 @@
         <h2 class="frame-title">Review — pick a diff</h2>
         <div class="frame">
           <img src="images/real-diff_r.png" alt="Diff view">
-          <div class="callout left" style="top:50%; right:2%;">Open a changed file</div>
+          <div class="callout left" style="top:35%; right:2%;">Open a changed file</div>
         </div>
         <p class="step-hint">Frame 2 of 3</p>
       <aside class="notes">Open a changed file to see the diff. Use the dropdown to scope: branch, uncommitted, all, or last agent turn.</aside>
@@ -466,11 +466,34 @@
       <aside class="notes">Select a block of text in the diff to leave range-based feedback for the agent. Catch issues before they merge.</aside>
       </section>
 
+      <!-- 8a-i. LEAVE A COMMENT / RANGE FEEDBACK -->
+      <section>
+        <h2 class="frame-title">Review — leave a comment on a diff</h2>
+        <div class="frame">
+          <img src="images/real-diff_r.png" alt="Diff view with a selected block">
+          <div class="callout left" style="top:45%; right:2%;">Select a block → comment</div>
+        </div>
+        <p class="step-hint">Frame 1 of 2</p>
+        <p class="subtitle">Highlight a block of code in the diff and choose <b>Add comment</b> to leave <b>range-based feedback</b> for the agent — tied to that exact line range.</p>
+      <aside class="notes">To leave feedback, select a block of code in the diff and pick Add comment. The comment is range-based: it points at the exact lines, so the agent knows precisely what to change.</aside>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Review — send all comments to the agent</h2>
+        <div class="frame">
+          <img src="images/real-changes_r.png" alt="Changes panel with Send feedback">
+          <div class="callout left" style="top:60%; right:2%;">Send feedback to agent</div>
+        </div>
+        <p class="step-hint">Frame 2 of 2</p>
+        <p class="subtitle">When you are done, use <b>Send feedback</b> in the Changes view to bundle every comment you left and push it back to the agent as one review.</p>
+      <aside class="notes">Once you have left all your comments, hit Send feedback in the Changes view. Every comment you made is collected and sent to the agent as a single review, so nothing is lost.</aside>
+      </section>
+
       <!-- 8b. VALIDATE LOCALLY -->
       <section>
         <h2 class="frame-title">Validate locally — browser &amp; tasks</h2>
         <div class="frame">
-          <img src="images/real-browser-tab_r.png" alt="Integrated browser">
+          <img src="images/real-integrated-browser.png" alt="Integrated browser showing local work">
           <div class="callout left" style="top:15%; right:2%;">Open Integrated Browser / Add Task</div>
         </div>
         <p class="step-hint">Frame 1 of 2</p>
@@ -499,8 +522,8 @@
       <section>
         <h2 class="frame-title">Commit changes</h2>
         <div class="frame">
-          <img src="images/real-changes_r.png" alt="Commit Changes">
-          <div class="callout left" style="top:70%; right:2%;">Commit Changes</div>
+          <img src="images/real-commit.png" alt="Changes panel with Commit Changes button">
+          <div class="callout left" style="top:78%; right:2%;">Commit Changes</div>
         </div>
         <p class="step-hint">Frame 1 of 2</p>
       <aside class="notes">Ready? Hit Commit Changes in the Changes view.</aside>
@@ -529,7 +552,7 @@
         <h2 class="frame-title">Work with multiple sessions</h2>
         <div class="frame">
           <img src="images/real-overview-2_r.png" alt="Sessions">
-          <div class="callout right" style="top:20%; left:2%;">Open to the Side / drag / Alt+click</div>
+          <div class="callout right" style="top:35%; left:2%;">Open to the Side / drag / Alt+click</div>
         </div>
         <p class="step-hint">Frame 1 of 2</p>
       <aside class="notes">Work with several at once: Open to the Side, drag a session into the view, or Alt+click.</aside>
@@ -580,28 +603,6 @@
           </div>
         </div>
       <aside class="notes">Your agents, skills, instructions, hooks, MCP, and plugins carry over. Settings inherit but can be overridden per window. Opt extensions in with extensions.supportAgentsWindow.</aside>
-      </section>
-
-      <!-- 11. LIMITATIONS & NEXT STEPS -->
-      <section>
-        <h2 class="frame-title">Limitations &amp; Next steps</h2>
-        <div style="text-align:left; display:inline-block; font-size:0.8em;">
-          <p><b>Preview caveats:</b></p>
-          <ul>
-            <li>Supports Copilot, cloud, Claude &amp; Codex on the Agent Host (Local/Codex-via-OpenAI run from main window).</li>
-            <li>Copilot Cloud only for GitHub-backed repos (Copilot still usable for others).</li>
-            <li>No plan agent in dropdown — use <code>/plan</code>.</li>
-            <li>Multi-chat per session: Copilot &amp; Claude only. Multi-root not yet supported.</li>
-          </ul>
-          <p><b>Learn more:</b></p>
-          <ul>
-            <li><a href="https://code.visualstudio.com/docs/chat/chat-overview">Chat overview</a></li>
-            <li><a href="https://code.visualstudio.com/docs/agents/run/sessions/manage-sessions">Manage sessions</a></li>
-            <li><a href="https://code.visualstudio.com/docs/agents/run/review-code-edits">Review AI-generated edits</a></li>
-            <li><a href="https://code.visualstudio.com/docs/agents/run/remote-agent-sessions">Remote agent sessions</a></li>
-          </ul>
-        </div>
-      <aside class="notes">It is Preview, so caveats: supported harnesses, Copilot Cloud needs GitHub-backed repos, no plan-agent dropdown (use /plan), multi-chat only for Copilot and Claude, no multi-root yet. Links for deeper reading are on screen.</aside>
       </section>
 
     </div>

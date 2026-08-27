@@ -33,10 +33,15 @@ No build step needed — `index.html` loads reveal.js from a CDN.
 - `index.html` — the full deck. Each feature is decomposed into discrete
   **transition frames** (one visual change per slide) plus a **result frame**
   with benefit bullets, per the presentation spec.
-- Official VS Code screenshot URLs are used directly from
-  `code.visualstudio.com/assets/docs/agents/agents-window/...`.
-  Frames without an official screenshot use a styled placeholder describing the
-  image to generate.
+- All slides use **real screenshots** of the VS Code Agents Window captured
+  from `insiders.vscode.dev/agents`, resized to 992×620 to fit the frame.
+  The deck has **40 slides**: intro, three "why" frames, six "open" methods
+  (title bar, command palette, welcome page, terminal, browser, result), the
+  five-area interface overview, active session, start-session flow, quick chat
+  flow, **review flow including two new slides on leaving comments / range-based
+  feedback and sending all comments to the agent**, validate locally, commit,
+  multiple sessions, and customize. The trailing "Limitations & Next steps"
+  slide was removed.
 
 ## Presenting
 
