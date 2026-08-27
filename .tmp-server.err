@@ -135,3 +135,7 @@
 127.0.0.1 - - [27/Aug/2026 23:14:21] "GET /images/real-settings_r.png HTTP/1.1" 200 -
 127.0.0.1 - - [27/Aug/2026 23:31:26] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [27/Aug/2026 23:31:26] "GET /images/files-panel.png HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 23:33:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [27/Aug/2026 23:33:29] "GET /images/files-panel.png HTTP/1.1" 304 -
+127.0.0.1 - - [27/Aug/2026 23:34:06] code 404, message File not found
+127.0.0.1 - - [27/Aug/2026 23:34:06] "GET /favicon.ico HTTP/1.1" 404 -
