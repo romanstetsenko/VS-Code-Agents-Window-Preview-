@@ -38,6 +38,14 @@
       border-radius: 6px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     }
+    .frame video {
+      max-height: 62vh;
+      max-width: 100%;
+      border: 1px solid #333;
+      border-radius: 6px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      background: #000;
+    }
     .frame .placeholder {
       width: min(70vw, 820px);
       height: min(44vh, 380px);
@@ -546,6 +554,15 @@
         </div>
         <p class="step-hint">Frame 1 of 2</p>
       <aside class="notes">Work with several at once: Open to the Side, drag a session into the view, or Alt+click.</aside>
+      </section>
+
+      <section>
+        <h2 class="frame-title">Open multiple sessions side by side</h2>
+        <div class="frame">
+          <video src="https://code.visualstudio.com/assets/docs/agents/agents-window/sessions-grid.mp4" title="Multiple agent sessions open side by side in the Agents window" autoplay loop controls muted></video>
+        </div>
+        <p class="step-hint">Frame 2 of 2</p>
+      <aside class="notes">See it in action: multiple sessions open side by side. Only one view is active at a time — select anywhere in a view to make it active; Files, Changes, Terminal, Tasks, and browser actions then apply to that session. By default selecting a session replaces the active view; pin a view from its toolbar to keep it. With several open, Ctrl+1 through Ctrl+9 focus a session by grid position, and Ctrl+K Ctrl+W closes all and returns to the new-session view.</aside>
       </section>
 
       <section>
