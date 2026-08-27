@@ -53,6 +53,47 @@
       text-align: center;
     }
 
+    /* Browser mockup: fake chrome around a screenshot */
+    .browser-mockup {
+      width: 100%;
+      border: 1px solid #333;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #1e1e1e;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+    .browser-mockup .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: #2d2d2d;
+      border-bottom: 1px solid #333;
+    }
+    .browser-mockup .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+    .browser-mockup .dot.red { background: #ff5f56; }
+    .browser-mockup .dot.yellow { background: #ffbd2e; }
+    .browser-mockup .dot.green { background: #27c93f; }
+    .browser-mockup .browser-url {
+      flex: 1;
+      margin-left: 8px;
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 4px 12px;
+      font-size: 0.6em;
+      color: #ccc;
+      text-align: left;
+    }
+    .browser-mockup img {
+      display: block;
+      max-width: 100%;
+      max-height: 56vh;
+      margin: 0 auto;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
     /* Callout / popup pointing at a UI element */
     .callout {
       position: absolute;
@@ -150,13 +191,9 @@
         <h2 class="frame-title">Open the Agents window</h2>
         <div class="frame">
           <img src="images/open-titlebar.png" alt="Agents window UI — Open in Agents">
-          <div class="callout down" style="top:12%; left:84%; transform:translateX(-50%);">Click <b>Open in Agents</b></div>
-          <div class="callout right" style="top:14%; left:2%;">① Title bar button — opens the Agents window from any editor</div>
-          <div class="callout right" style="top:46%; left:2%;">② Active editor — the workspace the new window attaches to</div>
-          <div class="callout right" style="top:78%; left:2%;">③ Status bar — shows the window is ready to host agents</div>
         </div>
         <p class="step-hint">Frame 1 of 6 — method 1</p>
-      <aside class="notes">To open it, the simplest path is the Open in Agents button in the title bar of your main editor window.</aside>
+      <aside class="notes">To open it, the simplest path is the Open in Agents button in the title bar of your main editor window. The opened window is annotated 1–5: 1 — the New session button, to start a session; 2 — the Customizations panel; 3 — the Chat area; 4 — the Changes panel; 5 — the Files panel. These five areas are detailed in the interface overview that follows.</aside>
       </section>
 
       <!-- 3b. OPEN: command palette -->
@@ -196,7 +233,13 @@
       <section>
         <h2 class="frame-title">Open the Agents window</h2>
         <div class="frame">
-          <img src="images/real-browser-agents.png" alt="Browser at insiders.vscode.dev/agents">
+          <div class="browser-mockup">
+            <div class="browser-bar">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="browser-url">insiders.vscode.dev/agents</span>
+            </div>
+            <img src="images/real-browser-agents.png" alt="Browser at insiders.vscode.dev/agents">
+          </div>
           <div class="callout down" style="top:6%; left:50%; transform:translateX(-50%);">Open in any browser</div>
         </div>
         <p class="step-hint">Frame 5 of 6 — method 5 (remote)</p>
@@ -237,7 +280,7 @@
         <h2 class="frame-title">Interface overview — Customizations panel</h2>
         <div class="frame">
           <img src="images/real-customizations_r.png" alt="Agents window UI">
-          <div class="callout left" style="top:45%; left:22%;">Customizations panel</div>
+          <div class="callout left" style="top:78%; left:22%;">Customizations panel</div>
         </div>
         <p class="subtitle">Access agent customizations for your workflow &amp; preferences.</p>
       <aside class="notes">Below it, the Customizations panel: your agents, skills, instructions, hooks, and MCP servers.</aside>
