@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="'Segoe UI', sans-serif">
+  <rect width="960" height="540" fill="#1e1e1e"/>
+  <text x="480" y="55" fill="#cccccc" font-size="20" text-anchor="middle" font-weight="600">Describe the outcome, not the code</text>
+  <rect x="180" y="90" width="600" height="300" rx="8" fill="#252526" stroke="#3c3c3c"/>
+  <text x="210" y="135" fill="#858585" font-size="14">You</text>
+  <rect x="210" y="148" width="540" height="56" rx="6" fill="#1e1e1e" stroke="#3c3c3c"/>
+  <text x="228" y="182" fill="#cccccc" font-size="16">Add a dark-mode toggle to settings</text>
+  <text x="210" y="255" fill="#3794ff" font-size="14">Agent</text>
+  <text x="210" y="285" fill="#cccccc" font-size="14">Planning implementation&#8230;</text>
+  <rect x="210" y="300" width="130" height="10" rx="3" fill="#2d2d30"/>
+  <rect x="210" y="318" width="210" height="10" rx="3" fill="#2d2d30"/>
+  <rect x="210" y="336" width="160" height="10" rx="3" fill="#2d2d30"/>
+  <rect x="180" y="410" width="600" height="72" rx="10" fill="#1e1e1e" stroke="#3794ff" stroke-width="2"/>
+  <text x="210" y="452" fill="#cccccc" font-size="16">Add a dark-mode toggle to settings</text>
+  <circle cx="740" cy="446" r="18" fill="#3794ff"/>
+  <path d="M732 438 l16 8 l-16 8 z" fill="#ffffff"/>
+</svg>

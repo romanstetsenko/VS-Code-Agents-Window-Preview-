@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="'Segoe UI', sans-serif">
+  <rect width="960" height="540" fill="#1e1e1e"/>
+  <rect x="120" y="120" width="720" height="320" rx="6" fill="#1e1e1e" stroke="#3c3c3c"/>
+  <rect x="120" y="120" width="720" height="30" rx="6" fill="#323233"/>
+  <text x="140" y="140" fill="#858585" font-size="12">TERMINAL</text>
+  <text x="140" y="200" fill="#cccccc" font-family="Consolas, monospace" font-size="18">&#62; code --agents</text>
+  <text x="140" y="240" fill="#3794ff" font-family="Consolas, monospace" font-size="14">Opening Agents window&#8230;</text>
+  <text x="140" y="270" fill="#858585" font-family="Consolas, monospace" font-size="14">&#9679; web-app   &#9679; api-server   &#9679; docs-site</text>
+  <text x="480" y="490" fill="#858585" font-size="13" text-anchor="middle">Run code --agents from any terminal</text>
+</svg>
